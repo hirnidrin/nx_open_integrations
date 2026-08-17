@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(update-config)",
+      "Bash(git *)",
+      "Bash(pytest:*)",
+      "Bash(ruff:*)",
+      "Bash(rg:*)",
+      "Bash(jq:*)",
+      "Bash(ffprobe:*)"
+    ],
+    "deny": [
+      "Bash(git clean:*)",
+      "Bash(git push:*)",
+      "Bash(git reset --hard:*)"
+    ]
+  },
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    }
+  },
+  "remoteControlAtStartup": false,
+  "agentPushNotifEnabled": true
+}

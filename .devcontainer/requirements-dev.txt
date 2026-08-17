@@ -1,0 +1,20 @@
+# Tooling for the shared container venv (~/.venv-tools), installed by
+# post-create.sh and put on PATH by devcontainer.json's remoteEnv.
+#
+# This is the environment used to work ON the repo: run every sample's offline
+# test suite from one place, lint, and poke at the API interactively. It is NOT
+# what a user of the samples installs — each sample folder keeps its own
+# requirements.txt, and its README's per-sample .venv still works unchanged.
+
+# The one runtime dependency the Python samples have.
+requests>=2.28
+
+# Test runner used by every sample's test_*.py, plus coverage on demand.
+pytest>=7.0
+pytest-cov>=4.0
+
+# Linter/formatter. Not wired into save-on-format; run it explicitly.
+ruff>=0.6
+
+# REPL for exploring REST responses by hand.
+ipython>=8.0

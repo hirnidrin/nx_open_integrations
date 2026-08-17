@@ -1,0 +1,73 @@
+{
+  "name": "nx_open_integrations",
+
+  // Ubuntu 24.04 to mirror the target Nx Witness server: apt's python3 on
+  // noble is 3.12.3, the same interpreter the samples are expected to run
+  // under there. Nothing is preinstalled in this image — post-create.sh adds
+  // python3, the tool venv, and the CLI utilities. No Node.js: only the
+  // Python samples are in scope right now.
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+
+  // Pinned, not derived from the local folder name: Claude Code's project
+  // memory path and claude-home/.gitignore are both keyed on this, so a
+  // differently-named clone must not shift it.
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/nx_open_integrations,type=bind,consistency=cached",
+  "workspaceFolder": "/workspaces/nx_open_integrations",
+
+  "containerEnv": {
+    // Relocates Claude Code's config dir into the repo. No mount needed — the
+    // repo is already bind-mounted. Keeps the container off the host's ~/.claude.
+    "CLAUDE_CONFIG_DIR": "${containerWorkspaceFolder}/.devcontainer/claude-home",
+
+    // Keep the bind mount free of __pycache__, and make sample output appear
+    // in the terminal immediately rather than when a pipe buffer flushes.
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONUNBUFFERED": "1",
+    "PIP_DISABLE_PIP_VERSION_CHECK": "1"
+  },
+
+  "remoteEnv": {
+    // The shared tool venv (pytest, requests, ruff, ipython) is on PATH in
+    // every shell, so no `source .venv/bin/activate` is needed to run the
+    // tests. Individual samples can still get their own .venv per their README.
+    "VIRTUAL_ENV": "/home/vscode/.venv-tools",
+    "PATH": "/home/vscode/.venv-tools/bin:/home/vscode/.local/bin:${containerEnv:PATH}"
+  },
+
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "anthropic.claude-code",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.debugpy",
+        "charliermarsh.ruff"
+      ],
+      "settings": {
+        "files.eol": "\n",
+        "editor.detectIndentation": false,
+        "editor.tabSize": 4,
+        "[json]": { "editor.tabSize": 2 },
+        "[jsonc]": { "editor.tabSize": 2 },
+        "[markdown]": { "editor.tabSize": 2 },
+
+        "python.defaultInterpreterPath": "/home/vscode/.venv-tools/bin/python",
+        // PATH already points at the tool venv; re-activating on every new
+        // terminal only prints noise.
+        "python.terminal.activateEnvironment": false,
+
+        // Discovery is scoped to the Python samples: cpp/ and
+        // "Cloud Service Checker/" hold .py files that are not pytest suites.
+        "python.testing.pytestEnabled": true,
+        "python.testing.unittestEnabled": false,
+        "python.testing.pytestArgs": ["api_sample/python"],
+
+        // Formatting stays manual — these are published samples, and a
+        // format-on-save would rewrite files unrelated to the current edit.
+        "editor.formatOnSave": false
+      }
+    }
+  }
+}

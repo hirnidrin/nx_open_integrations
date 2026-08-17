@@ -1,0 +1,18 @@
+# Claude Code's config dir inside the devcontainer (CLAUDE_CONFIG_DIR).
+# Local-only by default: credentials, session transcripts, caches, plugin
+# checkouts, and installed_plugins.json — which records absolute install paths
+# and must never be shared between checkouts.
+# Two exceptions are versioned: settings.json, which declares the enabled
+# plugins and permissions every checkout needs, and this project's memory —
+# small, reviewable, and worth carrying between hosts.
+*
+!.gitignore
+!/settings.json
+!projects/
+projects/*
+!projects/-workspaces-nx_open_integrations/
+projects/-workspaces-nx_open_integrations/*
+!projects/-workspaces-nx_open_integrations/MEMORY.md
+!projects/-workspaces-nx_open_integrations/memory/
+!projects/-workspaces-nx_open_integrations/memory/**/
+!projects/-workspaces-nx_open_integrations/memory/**/*.md
