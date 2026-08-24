@@ -1,0 +1,192 @@
+:root {
+  --accent: #3e63dd;
+  --accent-dark: #2f4eb8;
+  --text: #1f2933;
+  --text-muted: #62717f;
+  --border: #e2e7ed;
+  --surface: #ffffff;
+  --page-bg: #eef1f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: var(--page-bg);
+  margin: 0;
+  padding: 40px 24px 64px;
+}
+
+body > div,
+#data {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+body > div:first-of-type {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 28px;
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.05);
+}
+
+h1 {
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+
+h2 {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 32px 0 16px;
+  color: var(--text);
+}
+
+/* Hidden by default - createButtons() only reveals this once there
+   are enough sites that scanning the whole list gets tedious. */
+#systemFilter {
+  display: none;
+  width: 100%;
+  max-width: 320px;
+  padding: 9px 12px;
+  margin-bottom: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--text);
+  background: #fbfcfe;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+#systemFilter:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(62, 99, 221, 0.15);
+  background: var(--surface);
+}
+
+#systems {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 10px;
+}
+
+/* Applied only for larger site lists, so the page grows a scrollbar
+   here instead of pushing everything else down the page. A handful
+   of sites just wrap normally with no cap. */
+#systems.scrollable {
+  max-height: 220px;
+  overflow-y: auto;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fbfcfe;
+}
+
+#systems button {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 9px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  height: fit-content;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease, color 0.15s ease;
+}
+
+#systems button:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent-dark);
+  box-shadow: 0 2px 6px rgba(16, 24, 40, 0.08);
+  transform: translateY(-1px);
+}
+
+#systems button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+#systems button.active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(62, 99, 221, 0.35);
+}
+
+#systems button:disabled {
+  color: #b0b8c1;
+  background: #f4f6f8;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+#systems button.hidden-by-filter {
+  display: none;
+}
+
+/* Servers render as tiles in a responsive grid. */
+#data {
+  margin-top: 28px;
+  animation: fade-in 0.2s ease;
+}
+
+.server-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.server-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.05);
+}
+
+.server-card h3 {
+  margin: 0 0 12px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Cameras are a plain bulleted list under each server tile. */
+.camera-list {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.camera-list li {
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.camera-empty {
+  font-size: 13px;
+  color: #9aa5b1;
+  font-style: italic;
+  list-style: none;
+  padding-left: 0;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

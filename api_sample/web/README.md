@@ -27,6 +27,10 @@ Browser versions now cover the full shared sample set, plus the web-only live-vi
 
 ## Other browser demos (outside the shared catalog)
 
+- [`cdb-oauth2-authorization-code-login-browser`](cdb-oauth2-authorization-code-login-browser) —
+  the real, redirect-based OAuth2 `authorization_code` grant : 
+  log in via a full-page redirect to Nx Cloud, list Sites, then drill into 
+  one Site's servers and cameras via the relay.
 - [`2-way_audio_api`](2-way_audio_api) — a standalone HTML demo of 2-way audio
   (mic → camera, camera → browser) over a raw WebSocket/HTTP media endpoint. It
   predates the `proxy.mjs`/`server.mjs`/`nx-*-client.mjs` pattern above and talks
