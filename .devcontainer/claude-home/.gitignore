@@ -10,9 +10,9 @@
 !/settings.json
 !projects/
 projects/*
-!projects/-workspaces-nx_open_integrations/
-projects/-workspaces-nx_open_integrations/*
-!projects/-workspaces-nx_open_integrations/MEMORY.md
-!projects/-workspaces-nx_open_integrations/memory/
-!projects/-workspaces-nx_open_integrations/memory/**/
-!projects/-workspaces-nx_open_integrations/memory/**/*.md
+!projects/-workspaces-nx-open-integrations/
+projects/-workspaces-nx-open-integrations/*
+!projects/-workspaces-nx-open-integrations/MEMORY.md
+!projects/-workspaces-nx-open-integrations/memory/
+!projects/-workspaces-nx-open-integrations/memory/**/
+!projects/-workspaces-nx-open-integrations/memory/**/*.md
