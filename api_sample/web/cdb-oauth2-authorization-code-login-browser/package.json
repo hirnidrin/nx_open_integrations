@@ -1,0 +1,11 @@
+{
+  "name": "nx-cdb-oauth2-authorization-code-login-browser",
+  "version": "1.0.0",
+  "description": "Browser sample: OAuth2 authorization_code login to Nx Cloud, list the account's Sites, then drill into one Site's servers and cameras via the relay.",
+  "scripts": {
+    "start": "http-server"
+  },
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}
