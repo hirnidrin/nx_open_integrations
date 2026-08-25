@@ -118,7 +118,7 @@ Two things in it are versioned: [`settings.json`](claude-home/settings.json),
 which declares the enabled plugins and the permission rules (pre-allowing the
 read-only and test commands used here: `pytest`, `ruff`, `rg`, `jq`, `ffprobe`),
 and this project's memory
-(`projects/-workspaces-nx_open_integrations/memory/`, markdown only).
+(`projects/-workspaces-nx-open-integrations/memory/`, markdown only).
 Everything else — credentials, session transcripts, caches, plugin checkouts and
 `installed_plugins.json` — stays local to the checkout and is gitignored by
 `claude-home/.gitignore`, which denies everything by default and re-allows only

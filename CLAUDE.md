@@ -97,7 +97,7 @@ into a tracked file, a test, or a commit message.
 `CLAUDE_CONFIG_DIR` points at
 [.devcontainer/claude-home/](.devcontainer/claude-home/) (container-scoped; a
 session on the host sees none of it). Project memory lives in
-`claude-home/projects/-workspaces-nx_open_integrations/memory/` and is meant to
+`claude-home/projects/-workspaces-nx-open-integrations/memory/` and is meant to
 be reviewed and committed like any other change. `claude-home/settings.json` is
 shared with everyone who clones the repo — personal preferences belong in
 `settings.local.json` next to it.
