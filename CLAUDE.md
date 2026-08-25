@@ -73,12 +73,19 @@ into a tracked file, a test, or a commit message.
 
 ## Git
 
-- This fork (`hirnidrin/nx_open_integrations`) has `master` — tracking the
-  current VMS dev version — and `playground`, where local work happens. The
-  upstream Network Optix repo also carries `vms_5.0` / `vms_5.1` release
-  branches; samples on `master` don't necessarily work against release VMS
-  versions.
-- Commit subjects carry the ticket: `VI-68: Add JSON-RPC sample`.
+- This fork is `hirnidrin/nx_open_integrations`. **`playground` is our reference
+  branch** — all work happens there, or on a feature branch that gets merged
+  back into `playground`.
+- **Never switch to, work on, or commit to `master`.** It exists only to track
+  the forked upstream Network Optix repo. Same for the upstream `vms_5.0` /
+  `vms_5.1` release branches; samples on `master` don't necessarily work against
+  release VMS versions.
+- Commit subjects on our branches use **semantic commits** — `feat:`, `fix:`,
+  `docs:`, `chore:`, `test:`, `refactor:` — e.g. `feat: Add JSON-RPC sample`.
+  The `VI-xx:` ticket prefixes visible in `master`'s history are upstream's
+  convention, not ours; don't copy them.
+- **We never submit PRs against the upstream repo.** This fork is for our own
+  experiments.
 - Push and all GitHub work (PRs, issues) happen **on the host**, not in the
   container — there's no `gh` here, and `git push` is denied in the container's
   Claude settings.

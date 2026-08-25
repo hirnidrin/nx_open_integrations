@@ -26,3 +26,17 @@ For details about the components, see `readme.md` files in sub-folders.
 ## Free and Open-Source Software Notices
 
 For the legal information on third-party projects involved, see `notice.md` files in sub-folders.
+
+---------------------------------------------------------------------------------------------------
+## How we use this fork
+
+This is a personal fork (`hirnidrin/nx_open_integrations`) used for experiments with the Nx
+integration samples — it is not a contribution channel back to Network Optix, and no pull requests
+are submitted upstream.
+
+* `master` only tracks the forked upstream repository; it is never worked on directly.
+* `playground` is the reference branch where our own work lives, either directly or via feature
+  branches merged back into it.
+* Our commits use semantic subjects (`feat:`, `fix:`, `docs:`, `chore:`), unlike the `VI-xx:`
+  ticket prefixes in upstream history.
+* Development happens inside the dev container — see `.devcontainer/README.md` and `CLAUDE.md`.
