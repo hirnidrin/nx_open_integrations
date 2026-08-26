@@ -1,0 +1,4 @@
+# Snapshot images saved by running the sample.
+*.jpg
+*.png
+*.tif
