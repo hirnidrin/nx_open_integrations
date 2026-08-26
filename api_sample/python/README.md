@@ -16,6 +16,7 @@ latest **`/rest/v4`** API.
 | [`cdb-oauth2-list-systems`](cdb-oauth2-list-systems) | Login + list Sites, 2FA, token scope | Cloud CDB | 12 |
 | [`cdb-refresh-token`](cdb-refresh-token) | Proactive + reactive refresh, rotation, disk persistence | Cloud CDB | 13 |
 | [`rest-list-cameras`](rest-list-cameras) | Local-user login + list devices + logout | REST v4 | 10 |
+| [`rest-device-snapshot`](rest-device-snapshot) | Local-user login + save a still-frame image from one or several devices, live or archive | REST v4 | 38 |
 | [`rest-list-cameras-cloud-user`](rest-list-cameras-cloud-user) | Scoped cloud token + site access via the relay | REST v4 | 10 |
 | [`rest-event-log`](rest-event-log) | Scoped token, manual 307, v4 time window + parsing | REST v4 | 22 |
 | [`media-http-stream`](media-http-stream) | Save a live/archive video clip to a file via `media.{format}`, both auth modes, relay 307 | REST v4 | 36 |
