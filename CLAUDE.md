@@ -59,9 +59,10 @@ them when adding or editing a sample:
 - `--insecure` skips TLS verification (self-signed lab certs); `--env-file`
   points at the shared `.env`.
 - REST samples target **`/rest/v4`**.
-- Every Python sample has a matching `node_js` port with identical behavior and
-  matching tests; if you change behavior in one, the other is now out of sync —
-  flag it. (Surface difference: Python `--env-file`, Node `--dotenv`.)
+- Python is our working language here — it matches the container's environment
+  and the target Nx Witness server's OS/Python version. New samples don't need
+  a matching `node_js`/`typescript`/`csharp` port; the other-language folders
+  are pre-existing ports, not a convention to keep extending.
 - MPL 2.0 header as the first line of each source file:
   `# Copyright 2018-present Network Optix, Inc. Licensed under MPL 2.0: www.mozilla.org/MPL/2.0/`
 
